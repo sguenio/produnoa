@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Produnoa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Fondo y efecto de círculos */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background-color: #f7f7f7;
+        }
+
+        .ripple-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgb(167, 25, 25);
+            animation: ripple 15s infinite;
+            box-shadow: 0px 0px 1px 0px #991b1b;
+        }
+
+        .small { width: 200px; height: 200px; left: -100px; bottom: -100px; }
+        .medium { width: 400px; height: 400px; left: -200px; bottom: -200px; }
+        .large { width: 600px; height: 600px; left: -300px; bottom: -300px; }
+        .xlarge { width: 800px; height: 800px; left: -400px; bottom: -400px; }
+        .xxlarge { width: 1000px; height: 1000px; left: -500px; bottom: -500px; }
+
+        .shade1 { opacity: 0.2; }
+        .shade2 { opacity: 0.4; }
+        .shade3 { opacity: 0.6; }
+        .shade4 { opacity: 0.7; }
+        .shade5 { opacity: 0.8; }
+
+        @keyframes ripple {
+            0% { transform: scale(0.8); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(0.8); }
+        }
+
+        /* Estilos del formulario de login */
+        .login-container {
+            display: flex;
+            width: 800px;
+            height: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-image {
+            flex: 1;
+            background: url('assets/image/login.png') center/cover no-repeat;
+        }
+
+        .login-form {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-form h3 { font-weight: bold; margin-bottom: 20px; color: #292929; }
+
+        .form-floating .form-control {
+            border-radius: 8px;
+            box-shadow: none;
+        }
+
+        .form-floating label { color: #6c757d; }
+
+        .btn-login {
+            background-color: #ff3737;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 0;
+            font-weight: bold;
+            transition: background-color 0.1s ease;
+            color: white;
+        }
+
+        .btn-login:hover { background-color: #cf3131; color:white }
+
+        .forgot-password {
+            font-size: 0.9em;
+            color: #ff6666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .forgot-password:hover { color: #ff3838; }
+
+        .create-account {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-top: 15px;
+        }
+
+        .create-account a {
+            color: #ff2020;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .create-account a:hover { color: #ff3838; }
+
+        .logo img {
+            width: 190px;
+            margin-bottom: 20px;
+        }
+
+        .logo { text-align: center; }
+
+        @media (max-width: 768px) {
+            .login-container {
+                width: 100%;
+                height: auto;
+                margin: 2vh;
+            }
+            .login-image { display: none; }
+            .login-form { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fondo animado de círculos -->
+    <div class="ripple-background">
+        <div class="circle xxlarge shade1"></div>
+        <div class="circle xlarge shade2"></div>
+        <div class="circle large shade3"></div>
+        <div class="circle medium shade4"></div>
+        <div class="circle small shade5"></div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-image"></div>
+        <div class="login-form">
+            <div class="logo">
+                <img src="assets/image/logo.png" alt="Produnoa Logo">
+            </div>
+            <h3>Iniciar sesión</h3>
+            <form action="index.html">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="email" placeholder="Correo electrónico" required autocomplete="off">
+                    <label for="email">Correo electrónico</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" placeholder="Contraseña" required autocomplete="off">
+                    <label for="password">Contraseña</label>
+                </div>
+                <button type="submit" class="btn btn-login w-100">Iniciar sesión</button>
+                
+                <div class="d-flex justify-content-between mt-3">
+                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </div>
+                
+                <div class="create-account">
+                    ¿Quieres asignar un nuevo usuario? <a href="register.html">Regístralo aquí</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
